@@ -1,0 +1,281 @@
+<!doctype html>
+<html data-wf-page="667bff28d6820ad5277f139a" data-wf-site="667bff28d6820ad5277f13a5"><head><meta charset="utf-8">
+<title>The Saddle Framework | Elements</title><meta content="The Saddle Framework | Elements" property="og:title">
+<meta content="The Saddle Framework | Elements" property="twitter:title">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="{{ 'normalize.css' | asset_url }}" rel="stylesheet" type="text/css">
+<link href="{{ 'webflow.css' | asset_url }}" rel="stylesheet" type="text/css">
+<link href="{{ 'saddle-suka-3a75766b0d6a2bd37c4111efed9.webflow.css' | asset_url }}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Changa One:400,400italic"]  }});</script><script src="https://use.typekit.net/dvr2xht.js" type="text/javascript"></script><script type="text/javascript">try{Typekit.load();}catch(e){}</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+            {% if settings.favicon == blank %}
+              <link href="{{ 'favicon.png' | asset_url }}" rel="shortcut icon" type="image/x-icon">
+            {% else %}
+              <link rel="shortcut icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+            {% endif %}
+        
+
+            {% if settings.apple_touch_icon == blank %}
+              <link href="{{ 'webclip.jpg' | asset_url }}" rel="apple-touch-icon">
+            {% else %}
+              <link rel="apple-touch-icon" type="image/png" href="{{ settings.apple_touch_icon | img_url: '32x32' }}">
+            {% endif %}
+        
+<!--   [Attributes by Finsweet] Disable scrolling   --><script defer="" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-scrolldisable@1/scrolldisable.js"></script><!--   [Attributes by Finsweet] Mirror click events   --><script defer="" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-mirrorclick@1/mirrorclick.js"></script><script defer="" auto="" min="" src="https://cdn.jsdelivr.net/gh/liquify-pro/core@latest/script.js"></script><script defer="" auto="" min="" src="https://cdn.jsdelivr.net/gh/liquify-pro/core@latest/script.js"></script><meta name="robots" content="noindex,nofollow">
+<script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
+<body theme="dark">
+
+<div class="u-hide"><div class="css w-embed"><style>/* normalize fonts */
+body {
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* remove blue highlight on mobile tap */
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+/* fluid typography */
+html { font-size: calc(0.625rem + 0.42vw); }
+@media screen and (max-width:991px) { html { font-size: 1rem } }
+@media screen and (min-width:1440px) { html { font-size: 1rem } }
+/* dark mode */
+[theme="dark"], .u-bg-dark {
+	--colors--surface: var(--palette--neutral-1);
+	--colors--text: var(--palette--neutral-6);
+	--colors--stroke: var(--palette--neutral-3);
+	--colors--surface-2: var(--palette--neutral-2);
+	/* --colors--accent: var(--palette--blue); */
+ 	--colors--card-stroke: var(--palette--neutral-3);
+ 	--colors--text-muted: var(--palette--neutral-5);
+}
+/* setup */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+img,
+video {
+  height: auto;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.spacer * {
+	padding: 0
+}
+.w-richtext :first-child {margin-top: 0}
+.w-richtext :last-child {margin-bottom: 0}
+/* 
+* Custom styles 
+*/
+/* utilities */
+[hide], .css, .js {
+	display: none;
+}
+[pointer="off"] {
+	pointer-events: none;
+}
+[pointer="on"] {
+	pointer-events: auto;
+}
+[color-inherit] {
+	color: inherit;
+}
+[inline-flex] {
+	display: inline-flex;
+}
+/* gradients */
+/* make sure to use background-image */
+[gradient="1"] {
+  background-image: linear-gradient(135deg, #3E6CFF 0%, #CD3EFF 49.48%, #FF3EA6 100%);
+}
+[gradient="2"] {
+	background-image: linear-gradient(135deg, #FF9B3E 0%, #FF3E3E 50%, #FF3EC9 100%);
+}
+/* shadows */
+[shadow] { 
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+[shadow="lg"] { 
+	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+[shadow="xl"] { 
+	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+</style></div><div class="js w-embed w-script"><script>window.addEventListener('load', () => {
+	// js
+})
+</script></div></div><div class="u-hide"><div class="css w-embed"><style>/* these styles are only used on this page to avoid adding them to the global css */
+body, .sg-nav, .sg-side_nav {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+#structure-sections .section,
+#structure-containers .container {
+	position:relative;
+  outline: 1px solid var(--colors--stroke);
+  border-radius: var(--rounded--cards);
+  overflow: hidden
+}
+#structure-spacers [class^="spacer-"] {
+	background-color: rgba(62, 108, 255, 0.12);
+}
+[stroke] {
+	border: 1px solid var(--colors--stroke);
+}
+</style></div><div class="js w-embed w-script"><script>/**
+* Light/Dark mode
+*/
+// check if the theme exists in local storage
+if (localStorage.getItem('theme') === 'light') {
+  // remove attribute from body element
+  document.body.removeAttribute('theme', 'dark')
+}
+window.addEventListener('load', () => {
+  // if toggle is clicked, toggle the theme and store it in local storage
+  document.querySelectorAll('[theme-switch]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (document.body.hasAttribute('theme', 'dark')) {
+        document.body.removeAttribute('theme', 'dark')
+        localStorage.setItem('theme', 'light')
+      } else {
+        document.body.setAttribute('theme', 'dark')
+        localStorage.setItem('theme', 'dark')
+      }
+    }) /* end of click listener */
+    /* click on keyboard "enter" - accessibility */
+    btn.addEventListener('keypress', (event) => {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        // Trigger the button element with a click
+        btn.click()
+      }
+    }) /* end of keypress listener */
+  }) /* end of forEach loop */
+})/* end of load listener */
+</script></div></div><div data-animation="default" data-collapse="small" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sg-nav w-nav"><div class="css w-embed"><style>[theme="dark"] .sg-logo {
+	color: var(--color--text)
+}
+/* 
+* menu button 
+*/
+@media only screen and (max-width: 767px) {
+  .sg-nav {
+    --menu-timing: 300ms;
+  }
+}
+.sg-menu-button path,
+.sg-menu-button_text div {
+	transition-property: transform;
+  transition-duration: var(--menu-timing);
+  transition-timing-function: ease;
+	transform-origin: 50% 50%;
+}
+/* initial states */
+.sg-menu-button path {
+	transform: translateY(-8%) rotate(-45deg);
+}
+.sg-menu-button path:last-child {
+	transform: translateY(11%) rotate(45deg);
+}
+/* open states */
+.sg-menu-button.w--open path {
+	transform: translateY(0%) rotate(0deg);
+}
+.sg-menu-button.w--open .sg-menu-button_text div {
+	transform: translateY(-100%);
+}
+</style></div><div class="container w-container"><div class="sg-wrapper cc-nav"><a id="w-node-ac93a942-6d15-9f0f-16fe-e4abf150f60c-f150f609" href="../index.html" class="sg-logo w-nav-brand"><div class="w-embed"><svg width="80" height="19" viewbox="0 0 80 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5732 11.425C9.89093 11.0241 8.62614 10.6224 6.70507 10.1947C5.34219 9.90697 4.42636 9.64432 3.98364 9.41362C3.61471 9.22268 3.43501 8.87102 3.43501 8.33793C3.43501 7.86186 3.64162 7.49206 4.06784 7.2078C4.52359 6.9028 5.16857 6.74814 5.9863 6.74814C6.9438 6.74814 7.68774 6.96242 8.19557 7.38492C8.69558 7.80051 8.93865 8.39323 8.93865 9.19676V9.19935C8.93865 9.35487 9.06539 9.48102 9.22164 9.48102H11.6905C11.8467 9.48102 11.9735 9.35487 11.9735 9.19935V9.19676C11.9735 7.67264 11.4352 6.47685 10.3753 5.64221C9.33449 4.82485 7.8683 4.41013 6.01495 4.41013C4.37688 4.41013 3.01486 4.78684 1.96709 5.52989C0.8898 6.29454 0.34291 7.30025 0.34291 8.52024C0.34291 9.90784 0.911502 10.936 2.03306 11.5771C2.63725 11.9244 3.76922 12.2839 5.49584 12.6753C7.0497 13.0157 8.10008 13.3267 8.61832 13.5989C9.06539 13.8339 9.28241 14.2417 9.28241 14.8439C9.28241 15.3347 9.04455 15.7244 8.55495 16.0354C8.0315 16.3681 7.31186 16.5374 6.416 16.5374C5.34306 16.5374 4.51317 16.3015 3.94805 15.835C3.39074 15.3762 3.12077 14.7368 3.12077 13.8806V13.878C3.12077 13.7225 2.99403 13.5963 2.83777 13.5963H0.283012C0.125021 13.5963 -0.00171854 13.7242 1.76263e-05 13.8814V13.884C0.0199835 15.5118 0.601598 16.7776 1.7301 17.6451C2.83604 18.4961 4.40379 18.9273 6.38909 18.9273C8.19731 18.9273 9.66436 18.5471 10.7495 17.7963C11.8667 17.0238 12.4335 15.9775 12.4335 14.6832C12.4127 13.268 11.7894 12.1724 10.5741 11.4242L10.5732 11.425Z" fill="currentColor"></path><path d="M26.2304 14.9859V9.83465C26.2304 8.02886 25.6827 6.64471 24.6028 5.71935C23.535 4.80523 22.0289 4.34212 20.1235 4.34212C18.218 4.34212 16.7414 4.7819 15.6659 5.64764C14.5764 6.52461 13.9827 7.67893 13.9011 9.07777V9.089C13.8906 9.24885 14.0183 9.38277 14.1788 9.38277H16.7596C16.909 9.38277 17.0314 9.26613 17.0383 9.11838V9.10801C17.0739 8.37533 17.3447 7.80854 17.8656 7.37394C18.3916 6.93675 19.1503 6.7147 20.1226 6.7147C21.0948 6.7147 21.8553 6.94884 22.39 7.41023C22.9126 7.86211 23.1774 8.58874 23.1774 9.57026C23.1774 9.71541 23.0645 9.83637 22.9187 9.84674C21.6695 9.93833 20.4039 10.0774 19.1495 10.2623C17.0218 10.5725 15.5539 11.0719 14.6615 11.7899C13.7509 12.5226 13.2891 13.5266 13.2891 14.7751C13.2891 16.0236 13.7856 17.0552 14.7639 17.8397C15.7232 18.6096 17.0079 19.0001 18.5818 19.0001C20.4742 19.0001 21.9846 18.5188 23.0888 17.5667C23.2555 17.4233 23.5177 17.5244 23.5454 17.7421C23.5793 18.0056 23.6244 18.2 23.6809 18.4333L23.6826 18.4411C23.713 18.5664 23.825 18.6536 23.9543 18.6536H26.3033C26.4848 18.6536 26.6176 18.4843 26.5742 18.3089L26.5707 18.2959C26.345 17.3896 26.2304 16.313 26.2304 14.9868V14.9859ZM22.8761 12.2029C23.0385 12.1899 23.1782 12.317 23.1782 12.4794V12.6876C23.1782 13.441 23.0966 14.032 22.936 14.4459C22.7781 14.8528 22.489 15.2572 22.0749 15.6495C21.3969 16.2975 20.4377 16.6258 19.2215 16.6258C18.3413 16.6258 17.6529 16.4374 17.1746 16.0659C16.7119 15.7073 16.4862 15.233 16.4862 14.6161C16.4862 14.0424 16.6971 13.619 17.1312 13.3218C17.6052 12.9969 18.4489 12.7464 19.6452 12.5762C20.5688 12.4267 21.653 12.3014 22.8744 12.2029H22.8761Z" fill="currentColor"></path><path d="M61.4297 18.6532H63.9393C64.185 18.6532 64.3847 18.4596 64.3847 18.222V0.431142C64.3847 0.192674 64.185 0 63.9393 0H61.4297C61.184 0 60.9844 0.193538 60.9844 0.431142V18.222C60.9844 18.4605 61.184 18.6532 61.4297 18.6532Z" fill="currentColor"></path><path d="M79.9952 12.1603C79.9952 10.9593 79.8936 9.97696 79.6948 9.24255C79.2912 7.74089 78.4865 6.54597 77.3033 5.69232C76.1236 4.84213 74.6617 4.41013 72.9585 4.41013C70.7727 4.41013 69.014 5.0806 67.7318 6.4034C66.4531 7.72189 65.8047 9.43954 65.8047 11.5071C65.8047 13.7648 66.4575 15.5913 67.7448 16.9357C69.0366 18.2853 70.8196 18.9696 73.0453 18.9696C74.9039 18.9696 76.4448 18.5333 77.6245 17.6736C78.8111 16.8087 79.5577 15.7114 79.8442 14.4119L79.9197 14.0663H76.7104L76.66 14.2892C76.5003 14.9891 76.1158 15.5386 75.4838 15.9706C74.8484 16.4044 74.028 16.6247 73.0462 16.6247C71.8552 16.6247 70.909 16.2601 70.1546 15.5084C69.4567 14.8146 69.0556 13.7847 68.9602 12.4446H79.9969V12.1595L79.9952 12.1603ZM70.2171 7.71065C70.9151 7.07647 71.837 6.75506 72.9577 6.75506C74.0784 6.75506 74.9438 7.07215 75.6418 7.69856C76.2772 8.26881 76.6817 9.08443 76.8458 10.1264H69.0131C69.1772 9.10085 69.5817 8.28868 70.2171 7.71065Z" fill="currentColor"></path><path d="M42.0386 0.0261168H39.8441C39.6497 0.0261168 39.4908 0.186824 39.4908 0.382955V5.52815C39.4908 5.71218 39.3944 5.88931 39.2295 5.9688C39.0646 6.04829 38.8745 6.02496 38.7347 5.90745C37.5506 4.91297 36.0428 4.40839 34.2511 4.40839C32.4593 4.40839 30.9367 5.10306 29.6146 6.47252C28.2891 7.8463 27.6172 9.59852 27.6172 11.6825C27.6172 13.7665 28.2847 15.5144 29.6008 16.8778C30.9133 18.2378 32.4776 18.9273 34.2519 18.9273C36.0263 18.9273 37.5376 18.4313 38.7416 17.4533C38.8823 17.3383 39.0724 17.3176 39.2356 17.3988C39.3988 17.48 39.4917 17.6546 39.4917 17.8377V18.287C39.4917 18.4883 39.6566 18.6525 39.8589 18.6525H42.0247C42.2279 18.6525 42.3919 18.4892 42.3919 18.287V0.38209C42.3919 0.185959 42.2331 0.0252533 42.0395 0.0252533L42.0386 0.0261168ZM38.1045 15.1584C37.1895 16.0492 36.1166 16.5011 34.9177 16.5011C33.6165 16.5011 32.5262 16.0561 31.6772 15.1783C30.8308 14.3039 30.402 13.128 30.402 11.6842C30.402 10.2405 30.83 9.06196 31.6746 8.17808C32.5236 7.28901 33.6148 6.83799 34.9169 6.83799C36.1174 6.83799 37.1904 7.29506 38.1062 8.19709C39.0246 9.10257 39.4908 10.2759 39.4908 11.6842C39.4908 13.0926 39.0246 14.2633 38.1045 15.1593V15.1584Z" fill="currentColor"></path><path d="M58.0699 0.0269817H55.8754C55.6809 0.0269817 55.522 0.187688 55.522 0.383819V5.52901C55.522 5.71305 55.4257 5.89017 55.2608 5.96966C55.0958 6.04915 54.9057 6.02582 54.7659 5.90832C53.5819 4.91384 52.074 4.40926 50.2823 4.40926C48.4906 4.40926 46.968 5.10392 45.6459 6.47338C44.3203 7.84716 43.6484 9.59938 43.6484 11.6834C43.6484 13.7674 44.316 15.5153 45.632 16.8787C46.9445 18.2386 48.5088 18.9281 50.2832 18.9281C52.0575 18.9281 53.5689 18.4322 54.7729 17.4541C54.9135 17.3392 55.1036 17.3185 55.2668 17.3997C55.43 17.4809 55.5229 17.6554 55.5229 17.8386V18.2957C55.5229 18.4927 55.6809 18.6525 55.8762 18.6525H58.0707C58.2652 18.6525 58.4232 18.4918 58.4232 18.2957V0.382091C58.4232 0.18596 58.2643 0.0252533 58.0707 0.0252533L58.0699 0.0269817ZM54.1357 15.1593C53.2208 16.0501 52.1478 16.502 50.949 16.502C49.6477 16.502 48.5574 16.057 47.7085 15.1792C46.8621 14.3048 46.4332 13.1289 46.4332 11.6851C46.4332 10.2413 46.8612 9.06283 47.7058 8.17894C48.5548 7.28987 49.646 6.83886 50.9481 6.83886C52.1487 6.83886 53.2216 7.29592 54.1375 8.19795C55.0559 9.10344 55.522 10.2768 55.522 11.6851C55.522 13.0934 55.0559 14.2642 54.1357 15.1602V15.1593Z" fill="currentColor"></path></svg></div></a><div tabindex="0" theme-switch="" class="sg-theme cc-mobile w-embed"><svg class="theme-switch" width="56" height="28" viewbox="0 0 56 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect class="theme-toggle-bg" x="0.5" y="0.5" width="55" height="27" rx="14" fill="#FAFAFA" stroke="rgba(0,0,0,0.1)"></rect><g class="theme-icons"><g class="theme-sun-icon"><rect x="3" y="3" width="22" height="22" rx="11" fill="#3E6CFF"></rect><path d="M14.0007 7.33337V8.66671M14.0007 19.3334V20.6667M8.66732 14H7.33398M10.2101 10.2095L9.26725 9.26664M17.7912 10.2095L18.734 9.26664M10.2101 17.7934L9.26725 18.7362M17.7912 17.7934L18.734 18.7362M20.6673 14H19.334M17.334 14C17.334 15.841 15.8416 17.3334 14.0007 17.3334C12.1597 17.3334 10.6673 15.841 10.6673 14C10.6673 12.1591 12.1597 10.6667 14.0007 10.6667C15.8416 10.6667 17.334 12.1591 17.334 14Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path><circle class="sun-circle" cx="14" cy="14" r="3" fill="white"></circle></g><g class="theme-moon-icon"><rect x="3" y="3" width="22" height="22" rx="11" fill="#FAFAFA"></rect><circle class="theme-circle_03" cx="9" cy="13" r="3" fill="#D9D9D9"></circle><circle class="theme-circle_02" cx="14" cy="10" r="2" fill="#D9D9D9"></circle><circle class="theme-circle_01" cx="17.5" cy="18.5" r="1.5" fill="#D9D9D9"></circle></g></g></svg><style>/* variables */
+.theme-switch {
+	--timing: 300ms;
+  --easing: ease;
+}
+/* initial states (light mode) */
+.theme-icons {
+	transform: rotate(90deg);
+  transform-origin: 25% 50%;
+	transition-property: transform;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+.theme-moon-icon {
+	opacity: 0;
+  transform: scale(0.35);
+  transform-origin: 25% 50%;
+  transition-property: opacity, transform;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+.theme-toggle-bg {
+	transition: fill, stroke;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+/* dark mode */
+[theme="dark"] .theme-toggle-bg {
+	fill: #221F1F;
+  stroke: #413E3E;
+}
+[theme="dark"] .theme-icons {
+	transform: translateX(50%) rotate(0deg);
+}
+[theme="dark"] .theme-moon-icon {
+	opacity: 1;
+  transform: scale(1);
+}
+</style></div><nav role="navigation" id="w-node-ac93a942-6d15-9f0f-16fe-e4abf150f60e-f150f609" class="sg-nav_menu w-nav-menu"><a href="../styleguide/styles.html" class="sg-nav_link w-inline-block"><div class="text-sm">Styleguide</div></a><a href="../styleguide/elements.html" aria-current="page" class="sg-nav_link w-inline-block w--current"><div class="text-sm">UI elements</div></a><div tabindex="0" theme-switch="" class="sg-theme w-embed"><svg class="theme-switch" width="56" height="28" viewbox="0 0 56 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect class="theme-toggle-bg" x="0.5" y="0.5" width="55" height="27" rx="14" fill="#FAFAFA" stroke="rgba(0,0,0,0.1)"></rect><g class="theme-icons"><g class="theme-sun-icon"><rect x="3" y="3" width="22" height="22" rx="11" fill="#3E6CFF"></rect><path d="M14.0007 7.33337V8.66671M14.0007 19.3334V20.6667M8.66732 14H7.33398M10.2101 10.2095L9.26725 9.26664M17.7912 10.2095L18.734 9.26664M10.2101 17.7934L9.26725 18.7362M17.7912 17.7934L18.734 18.7362M20.6673 14H19.334M17.334 14C17.334 15.841 15.8416 17.3334 14.0007 17.3334C12.1597 17.3334 10.6673 15.841 10.6673 14C10.6673 12.1591 12.1597 10.6667 14.0007 10.6667C15.8416 10.6667 17.334 12.1591 17.334 14Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path><circle class="sun-circle" cx="14" cy="14" r="3" fill="white"></circle></g><g class="theme-moon-icon"><rect x="3" y="3" width="22" height="22" rx="11" fill="#FAFAFA"></rect><circle class="theme-circle_03" cx="9" cy="13" r="3" fill="#D9D9D9"></circle><circle class="theme-circle_02" cx="14" cy="10" r="2" fill="#D9D9D9"></circle><circle class="theme-circle_01" cx="17.5" cy="18.5" r="1.5" fill="#D9D9D9"></circle></g></g></svg><style>/* variables */
+.theme-switch {
+	--timing: 300ms;
+  --easing: ease;
+}
+/* initial states (light mode) */
+.theme-icons {
+	transform: translate3d(0%, 0, 0) rotate(90deg);
+  transform-origin: 25% 50%;
+	transition-property: transform;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+.theme-moon-icon {
+	opacity: 0;
+  transform: scale(0.35);
+  transform-origin: 25% 50%;
+  transition-property: opacity, transform;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+.theme-toggle-bg {
+	transition: fill, stroke;
+  transition-duration: var(--timing);
+  transition-timing-function: var(--ease);
+}
+/* dark mode */
+[theme="dark"] .theme-toggle-bg {
+	fill: #221F1F;
+  stroke: #413E3E;
+}
+[theme="dark"] .theme-icons {
+	transform: translate3d(50%, 0, 0) rotate(0deg);
+}
+[theme="dark"] .theme-moon-icon {
+	opacity: 1;
+  transform: scale(1);
+}
+</style></div><a href="http://www.gosaddle.com/framework" target="_blank" class="sg-nav_link cc-right w-inline-block"><div class="text-sm">About Framework</div></a></nav><div class="sg-menu-button w-nav-button"><div class="sg-menu-button_layout"><div class="sg-menu-button_text"><div class="text-sm">Menu</div><div class="text-sm">Close</div></div><div class="sg-menu-button_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="menu-button_top-line" d="M11 11L21 21" stroke="currentColor" stroke-width="1.4"></path><path class="menu-button_bottom-line" d="M11 21L21 11" stroke="currentColor" stroke-width="1.4"></path></svg></div></div></div></div></div></div><div class="page-wrap"> {{ content_for_layout }} </div></div></article></main></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=667bff28d6820ad5277f13a5" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script><link rel="stylesheet" href="https://scripttag.nyc3.digitaloceanspaces.com/3800019a-ae93-42cb-9b69-57f63d5d4283">
+<script>$('form').submit(function(event) {event.preventDefault()})
+</script>
+</body>
+</html>
