@@ -9,6 +9,11 @@
 */
 {
   "sections": {
+    "productpage_V9MXqe": {
+      "type": "productpage",
+      "settings": {
+      }
+    },
     "productpage_Fb6wWY": {
       "type": "productpage",
       "settings": {
@@ -37,6 +42,7 @@
   "layout": "product",
   "wrapper": "main.main-wrapper",
   "order": [
+    "productpage_V9MXqe",
     "productpage_Fb6wWY",
     "product",
     "flavors",
