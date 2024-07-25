@@ -1,0 +1,36 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "marquee": {
+            "type": "marquee"
+        },
+        "collection_products": {
+            "type": "collection_products"
+        },
+        "seperator": {
+            "type": "seperator"
+        },
+        "merch": {
+            "type": "merch"
+        },
+        "email": {
+            "type": "email"
+        },
+        "socials": {
+            "type": "socials"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero",
+        "marquee",
+        "collection_products",
+        "seperator",
+        "merch",
+        "email",
+        "socials"
+    ]
+}
