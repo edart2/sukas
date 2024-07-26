@@ -1,0 +1,20 @@
+{
+    "sections": {
+        "cart": {
+            "type": "cart"
+        },
+        "flavors": {
+            "type": "flavors"
+        },
+        "variety": {
+            "type": "variety"
+        }
+    },
+    "layout": "cart",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "cart",
+        "flavors",
+        "variety"
+    ]
+}
