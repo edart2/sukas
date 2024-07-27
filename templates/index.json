@@ -34,7 +34,7 @@
     "merch": {
       "type": "merch",
       "settings": {
-        "collection_merch": "",
+        "collection_merch": "frontpage",
         "collection_merch_limit": 6
       }
     },
