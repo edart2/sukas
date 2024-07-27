@@ -1,0 +1,10 @@
+<div class="container"><div class="c-content-title u-width-full u-text-left"><div class="heading-style-h2 u-text-left"><div class="h3 u-text-center">SUKA FOR SNACKS</div></div></div><div class="spacer-sm"></div><div class="filter_product-list">{% for product in section.settings.collection_products.products limit: section.settings.collection_products_limit %}
+<div class="list-item">
+    
+    <a li-object:href="product.url" href="{{ product.url }}" class="c-card-link_wrap w-inline-block"><div class="c-card-inner"><div class="c-product-card_top"><div class="c-img-container"><img src="{{ product.featured_image | img_url: 'master' }}" loading="eager" li-object:src="product.featured_image | img_url: 'master'" alt="" class="product-photo_image">
+</div></div><div class="c-card-title"><div li-object="product.title" wized="merchandise_product_name" class="c-product-card-title">{{ product.title }}</div><div li-object="product.price | money" wized="merchandise_product_price" class="c-product-card-price">{{ product.price | money }}</div></div><div class="c-card-feature"><div class="text-base">approx. 50 Cal</div></div><div class="c-btn-container"><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="direct-add-to-cart" class="c-btn" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" @click="addToCart()"><div class="c-btn-inner"><div class="text-sm u-text-center">BUY IT</div></div></div></div></div></a>
+    
+</div>
+{% endfor %}
+</div></div> {% schema %} {"tag":"section","name":"flavors","class":"c-section is-products is-shop","settings":[{"id":"collection_products","type":"collection","label":"products"},{"type":"range","id":"collection_products_limit","min":1,"max":99,"step":1,"label":"Limit: products","default":6}],"presets":[{"name":"flavors","category":"Liquify"}]} {% endschema %}
