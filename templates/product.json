@@ -1,20 +1,45 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-    "sections": {
-        "product": {
-            "type": "product"
-        },
-        "flavors": {
-            "type": "flavors"
-        },
-        "variety": {
-            "type": "variety"
-        }
+  "sections": {
+    "productpage_jDLNCX": {
+      "type": "productpage",
+      "settings": {
+      }
     },
-    "layout": "product",
-    "wrapper": "main.main-wrapper",
-    "order": [
-        "product",
-        "flavors",
-        "variety"
-    ]
+    "product": {
+      "type": "product",
+      "settings": {
+      }
+    },
+    "flavors": {
+      "type": "flavors",
+      "settings": {
+        "collection_products": "",
+        "collection_products_limit": 6
+      }
+    },
+    "variety": {
+      "type": "variety",
+      "settings": {
+        "collection_products": "",
+        "collection_products_limit": 6
+      }
+    }
+  },
+  "layout": "product",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "productpage_jDLNCX",
+    "product",
+    "flavors",
+    "variety"
+  ]
 }
