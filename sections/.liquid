@@ -1,0 +1,175 @@
+<a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="home-logo-wrap w-inline-block"><img sizes="(max-width: 479px) 56.884765625px, 71.11328125px" srcset="{{ 'Suka-_-Logosuite-56-p-500.png' | asset_url }} 500w, {{ 'Suka-_-Logosuite-56.png' | asset_url }} 729w" alt="" src="{{ 'Suka-_-Logosuite-56.png' | asset_url }}" loading="lazy" class="brand-logo">
+</a><div class="right-nav-wrap"><div class="navabar-wrap"><div class="container is-nav w-container"><div data-w-id="317df681-3017-bf42-ce5c-63fd0aec4053" class="navbar_menu-button w-nav-button"><div class="menu-icon"><div class="html-embed-2 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 6H21M3 18H21" stroke="#1C214E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="html-embed-3 w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="#1C214E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></div></div><div id="cart" data-w-id="95da3ce4-9649-abe9-72f9-409a590b99a1" class="navabar-wrap"><script>
+    document.addEventListener('alpine:init', () => {
+
+    Alpine.data('handleMinicart', () => ({
+        init() {
+            console.log('handleMinicart init')
+        },
+        open: false,
+        note: null,
+        attributes: {},
+        original_total_price: 0,
+        total_price: 0,
+        total_discount: 0,
+        total_weight: 0.0,
+        item_count: 0,
+        products: [],
+        requires_shipping: false,
+        currency: 'EUR',
+        items_subtotal_price: 0,
+        cart_level_discount_applications: [],
+        cartApiResponseDefault : {
+            result : {},
+            show : false,
+            timeout : 5000,
+        },
+        cartApiResponse : {
+            result : {},
+            show : false,
+            timeout : 5000,
+        },
+
+        // deprecated:
+        total: {
+            items: 0,
+            price: 0,
+            weight: 0,
+            discount: 0,
+        },
+        _abortController : null,
+        initAbortController() {
+            if(this._abortController) {
+                this._abortController.abort('abort previous request');
+            }
+            this._abortController = new AbortController()
+        },
+        getAbortControllerSignal() {
+            return this._abortController.signal
+        },
+        resetAbortController() {
+            this._abortController = null;
+        },
+        toggleMiniCart() {
+            console.log('(minicart.js) toggleMiniCart called');
+
+            LiquifyHelper.handleTriggerClick();
+
+            this.getCart();
+        },
+
+        /**
+         * Get the cart data.
+         */
+        getCart() {
+            this.initAbortController()
+            fetch(window.Shopify.routes.root + 'cart.js', {
+                method: 'GET',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.resetAbortController();
+
+                this.total.items = data.item_count;
+
+                this.products = data.items.map((item) => {
+                    item.title = this.htmlspecialchars_decode(item.title)
+                    return item
+                })
+
+                this.total.price = data.total_price;
+                this.total.weight = data.total_weight;
+                this.total.discount = data.total_discount;
+
+                this.$dispatch('carttotalitems', data.item_count);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        },
+
+        /**
+         * @param id
+         * @param quantity
+         */
+        increaseCartItemQuantity(id, quantity) {
+            this.updateCartItemQuantity(id, parseInt(quantity) + 1);
+        },
+
+        /**
+         * @param id
+         * @param quantity
+         */
+        decreaseCartItemQuantity(id, quantity) {
+            this.updateCartItemQuantity(id, parseInt(quantity) - 1);
+        },
+
+        /**
+         * Update the cart item.
+         *
+         * @param id
+         * @param quantity
+         */
+        updateCartItemQuantity(id, quantity) {
+            this.initAbortController();
+            console.log('updateCartItemQuantity(): id, quantity: ', id, quantity);
+            this.products.filter((product)  => {
+                if(parseInt(product.id) === parseInt(id)) {
+                    product.quantity = quantity
+                }
+            })
+            fetch(window.Shopify.routes.root + 'cart/change.js', {
+                method: 'POST',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    id: `${id}`,
+                    quantity: quantity,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+                    console.log('updateCartItemQuantity(): ', data);
+
+                    this.$dispatch('cartupdated');
+                    this.$dispatch('showcartmessage', { status: data.status, message: data.message, description: data.description });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    this.$dispatch('showcartmessage', { status: error?.status, message: error, description: error });
+                });
+        },
+
+        /**
+         * Format monetary values.
+         */
+        moneyFormat(value, minor = true) {
+            return LiquifyHelper.moneyFormat(value, minor)
+        },
+
+        htmlspecialchars_decode(string) {
+            return LiquifyHelper.htmlspecialchars_decode(string)
+        },
+
+        /**
+         * Shows the minicart api message
+         * @param event
+         */
+        showCartMessage(event) {
+            console.log("dispatched showCartMessage", event)
+            if(event?.detail?.status) {
+                this.cartApiResponse.result = event.detail ?? this.cartApiResponseDefault.result;
+                this.cartApiResponse.show = true
+                setTimeout(() =>  this.cartApiResponse =  this.cartApiResponseDefault, this.cartApiResponse.timeout ?? 5000)
+            }
+        },
+    }))
+});
+
+
+</script>
+<div li-element="mini-cart" sf-cart-open="1" class="container is-nav w-container" x-cloak="" x-data="handleMinicart()" x-init="getCart()" @cartupdated.window="getCart()" @setcartitem.window="updateCartItemQuantity($event.detail.product, $event.detail.quantity)" @increasecartitem.window="increaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @decreasecartitem.window="decreaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @toggleminicart.window="toggleMiniCart()" @showcartmessage.window="showCartMessage"><div class="code-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.0004 9V6C16.0004 3.79086 14.2095 2 12.0004 2C9.79123 2 8.00037 3.79086 8.00037 6V9M3.59237 10.352L2.99237 16.752C2.82178 18.5717 2.73648 19.4815 3.03842 20.1843C3.30367 20.8016 3.76849 21.3121 4.35839 21.6338C5.0299 22 5.94374 22 7.77142 22H16.2293C18.057 22 18.9708 22 19.6423 21.6338C20.2322 21.3121 20.6971 20.8016 20.9623 20.1843C21.2643 19.4815 21.179 18.5717 21.0084 16.752L20.4084 10.352C20.2643 8.81535 20.1923 8.04704 19.8467 7.46616C19.5424 6.95458 19.0927 6.54511 18.555 6.28984C17.9444 6 17.1727 6 15.6293 6L8.37142 6C6.82806 6 6.05638 6 5.44579 6.28984C4.90803 6.54511 4.45838 6.95458 4.15403 7.46616C3.80846 8.04704 3.73643 8.81534 3.59237 10.352Z" stroke="#1C214E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div li-element="mini-cart-toggle" class="cart-button-counter" @click="$dispatch('cartupdated.window')"><div li-element="mini-cart-item-count" wized="item_quantity_total" sf-cart-count="1" x-data="{ items: 0 }" x-text="items" @carttotalitems.window="items = event.detail">0</div></div></div></div></div><nav role="navigation" class="navbar_menu w-nav-menu"><div class="navbar_menu-inner"><div class="nav_link-wrapper is-0"><a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="nav_link">HOME</a></div><div class="nav_link-wrapper is-1"><a class="nav_link w--current" href="{{ section.settings.url_shop }}"> SHOP </a>
+</div><div class="nav_link-wrapper is-3"><a href="mailto:Info@sukasnacks.com?subject=Hey!" class="nav_link">Contact</a></div><div class="nav_link-wrapper is-4"><a href="/pages/about" class="nav_link">About</a></div></div></nav> {% schema %} {"tag":"div","class":"navbar w-nav","settings":[{"id":"url_shop","type":"url","label":"shop"}],"presets":[{"name":"","category":"Liquify"}]} {% endschema %}
