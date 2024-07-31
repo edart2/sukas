@@ -1,36 +1,63 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-    "sections": {
-        "hero": {
-            "type": "hero"
-        },
-        "marquee": {
-            "type": "marquee"
-        },
-        "collection_products": {
-            "type": "collection_products"
-        },
-        "seperator": {
-            "type": "seperator"
-        },
-        "merch": {
-            "type": "merch"
-        },
-        "email": {
-            "type": "email"
-        },
-        "socials": {
-            "type": "socials"
-        }
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+      }
     },
-    "layout": "theme",
-    "wrapper": "main.main-wrapper",
-    "order": [
-        "hero",
-        "marquee",
-        "collection_products",
-        "seperator",
-        "merch",
-        "email",
-        "socials"
-    ]
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+      }
+    },
+    "collection_products": {
+      "type": "collection_products",
+      "settings": {
+        "collection_products": "frontpage",
+        "collection_products_limit": 6
+      }
+    },
+    "seperator": {
+      "type": "seperator",
+      "settings": {
+      }
+    },
+    "merch": {
+      "type": "merch",
+      "settings": {
+        "collection_merch": "",
+        "collection_merch_limit": 6
+      }
+    },
+    "email": {
+      "type": "email",
+      "settings": {
+      }
+    },
+    "socials": {
+      "type": "socials",
+      "settings": {
+      }
+    }
+  },
+  "layout": "theme",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "hero",
+    "marquee",
+    "collection_products",
+    "seperator",
+    "merch",
+    "email",
+    "socials"
+  ]
 }
