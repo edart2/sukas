@@ -1,0 +1,28 @@
+{
+    "sections": {
+        "flavors": {
+            "type": "flavors"
+        },
+        "variety": {
+            "type": "variety"
+        },
+        "merch": {
+            "type": "merch"
+        },
+        "cta": {
+            "type": "cta"
+        },
+        "socials": {
+            "type": "socials"
+        }
+    },
+    "layout": "collection",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "flavors",
+        "variety",
+        "merch",
+        "cta",
+        "socials"
+    ]
+}
