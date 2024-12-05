@@ -1,0 +1,45 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "productpage_4iqpGR": {
+      "type": "productpage",
+      "settings": {
+      }
+    },
+    "product": {
+      "type": "product",
+      "settings": {
+      }
+    },
+    "flavors": {
+      "type": "flavors",
+      "settings": {
+        "collection_products": "",
+        "collection_products_limit": 6
+      }
+    },
+    "variety": {
+      "type": "variety",
+      "settings": {
+        "collection_products": "",
+        "collection_products_limit": 6
+      }
+    }
+  },
+  "layout": "product",
+  "wrapper": "main.main-wrapper",
+  "order": [
+    "productpage_4iqpGR",
+    "product",
+    "flavors",
+    "variety"
+  ]
+}
